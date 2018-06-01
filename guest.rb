@@ -15,9 +15,9 @@ class Guest
     @wallet -= amount
   end
 
-  def sing_along(room)
-    return "hhhmmm, hhhmmm (singing to music in my head)" if room.playing_song() == nil
-    room.playing_song().words()
+  def sing_along()
+    return "hhhmmm, hhhmmm (singing to music in my head)" if @in_room.playing_song() == nil
+    @in_room.playing_song().words()
   end
 
 end

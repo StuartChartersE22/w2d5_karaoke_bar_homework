@@ -27,7 +27,6 @@ class Club
     wanted_room.add_guest(guest)
     guest.remove_cash(wanted_room.price())
     add_cash(wanted_room.price())
-    guest.in_room = wanted_room
   end
 
   def admit_party_to_room(wanted_theme, array_of_guests)

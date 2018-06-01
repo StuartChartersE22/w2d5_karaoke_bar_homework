@@ -29,13 +29,17 @@ class GuestTest < MiniTest::Test
   end
 
   def test_can_sing_along_to_song__song_is_playing
+    @room1.add_guest(@guest1)
+    @guest1.in_room = @room1
     @room1.play_selected_song("Make a man out of you")
-    words_sung = @guest1.sing_along(@room1)
+    words_sung = @guest1.sing_along()
     assert_equal("Words to 'Make a man out of you'", words_sung)
   end
 
   def test_can_sing_along_to_song__no_song_playing
-    words_sung = @guest1.sing_along(@room1)
+    @room1.add_guest(@guest1)
+    @guest1.in_room = @room1
+    words_sung = @guest1.sing_along()
     assert_equal("hhhmmm, hhhmmm (singing to music in my head)", words_sung)
   end
 
