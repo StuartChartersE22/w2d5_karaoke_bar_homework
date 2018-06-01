@@ -1,12 +1,16 @@
+require("pry")
+
 class Room
 
   attr_reader(:price, :songs, :occupants, :capacity)
+  attr_accessor(:theme)
 
-  def initialize(price, capacity)
+  def initialize(price, capacity, theme)
     @price = price
     @songs = []
     @occupants = []
     @capacity = capacity
+    @theme = theme
   end
 
   def add_song(song)

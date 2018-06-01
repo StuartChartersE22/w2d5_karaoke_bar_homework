@@ -1,3 +1,5 @@
+require("pry")
+
 class Guest
 
   attr_reader(:name, :wallet)
