@@ -37,6 +37,7 @@ class ClubTest < MiniTest::Test
     assert_equal(4, @room1.number_of_spaces_left())
     assert_equal(40.00, @guest1.wallet())
     assert_equal(10.00, @club1.till())
+    assert_equal(@room1, @guest1.in_room())
   end
 
   def test_admit_guest_to_room__insufficient_space_and_sufficient_funds
@@ -62,6 +63,8 @@ class ClubTest < MiniTest::Test
     assert_equal(40.00, @guest1.wallet())
     assert_equal(10.00, @guest2.wallet())
     assert_equal(20.00, @club1.till())
+    assert_equal(@room1, @guest1.in_room())
+    assert_equal(@room1, @guest2.in_room())
   end
 
   def test_admit_party_to_room__sufficient_space_and_insufficient_funds

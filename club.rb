@@ -27,6 +27,7 @@ class Club
     wanted_room.add_guest(guest)
     guest.remove_cash(wanted_room.price())
     add_cash(wanted_room.price())
+    guest.in_room = wanted_room
   end
 
   def admit_party_to_room(wanted_theme, array_of_guests)
@@ -38,6 +39,7 @@ class Club
     wanted_room.add_party(array_of_guests)
     array_of_guests.each {|guest| guest.remove_cash(wanted_room.price())}
     add_cash(wanted_room.price() * array_of_guests.length())
+    array_of_guests.each {|guest| guest.in_room = wanted_room}
   end
 
 end
