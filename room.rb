@@ -24,4 +24,12 @@ class Room
     @occupants.concat(guests_array)
   end
 
+  def remove_guest(guest)
+    @occupants.delete(guest)
+  end
+
+  def remove_many_guests(guests_leaving_array)
+    @occupants -= guests_leaving_array
+  end
+
 end
