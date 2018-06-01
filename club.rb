@@ -1,11 +1,11 @@
 class Club
 
-  attr_reader(:name)
+  attr_reader(:name, :till)
 
   def initialize(name, array_of_rooms)
     @name = name
     @rooms = array_of_rooms
-    @till = 0
+    @till = 0.0
   end
 
 end

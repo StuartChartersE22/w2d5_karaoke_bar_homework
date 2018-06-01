@@ -21,4 +21,9 @@ class ClubTest < MiniTest::Test
     assert_equal("Da Mic", @club1.name())
   end
 
+  def test_add_to_till
+    @club1.add_cash(10.00)
+    assert_equal(10.00, @club1.till())
+  end
+
 end
