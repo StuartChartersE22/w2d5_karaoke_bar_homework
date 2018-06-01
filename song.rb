@@ -8,4 +8,8 @@ class Song
     @name = name
   end
 
+  def play()
+    return "I am playing"
+  end
+
 end
