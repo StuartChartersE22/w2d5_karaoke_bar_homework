@@ -29,4 +29,15 @@ class Club
     add_cash(wanted_room.price())
   end
 
+  def admit_party_to_room(wanted_theme, array_of_guests)
+    possible_rooms = available_rooms(1)
+    wanted_room = possible_rooms.find {|room| room.theme() == wanted_theme}
+
+    return if wanted_room == nil || array_of_guests.any? {|guest| guest.wallet() < wanted_room.price()}
+
+    wanted_room.add_party(array_of_guests)
+    array_of_guests.each {|guest| guest.remove_cash(wanted_room.price())}
+    add_cash(wanted_room.price() * array_of_guests.length())
+  end
+
 end
