@@ -7,11 +7,12 @@ class ClubTest < MiniTest::Test
 
   def setup
     @room1 = Room.new(10.00, 5, "fairytale")
-    @room2 = Room.new(15.50, 7, "musical")
+    @room2 = Room.new(15.50, 2, "musical")
     rooms = [@room1, @room2]
 
     @guest1 = Guest.new("Stuart", 50.00)
     @guest2 = Guest.new("Sophie", 20.00)
+    @guest3 = Guest.new("Joe", 20.00)
     @party1 = [@guest1, @guest2]
 
     @club1 = Club.new("Da Mic", rooms)
@@ -36,6 +37,14 @@ class ClubTest < MiniTest::Test
     assert_equal(4, @room1.number_of_spaces_left())
     assert_equal(40.00, @guest1.wallet())
     assert_equal(10.00, @club1.till())
+  end
+
+  def test_admit_guest_to_room__insufficient_space_and_sufficient_funds
+    @room2.add_many_guests(@party1)
+    @club1.admit_guest_to_room("musical", @guest3)
+    assert_equal(0, @room2.number_of_spaces_left())
+    assert_equal(20.00, @guest3.wallet())
+    assert_equal(0.00, @club1.till())
   end
 
 end
