@@ -30,7 +30,7 @@ class Club
   end
 
   def admit_party_to_room(wanted_theme, array_of_guests)
-    possible_rooms = available_rooms(1)
+    possible_rooms = available_rooms(array_of_guests.length())
     wanted_room = possible_rooms.find {|room| room.theme() == wanted_theme}
 
     return if wanted_room == nil || array_of_guests.any? {|guest| guest.wallet() < wanted_room.price()}
