@@ -8,7 +8,7 @@ class RoomTest < MiniTest::Test
   def setup
     @room1 = Room.new(10.00)
     @song1 = Song.new("Make a man out of you")
-    @song2 = Song.new("Once upon a Decomber")
+    @song2 = Song.new("Once upon a December")
     @guest1 = Guest.new("Stuart")
     @guest2 = Guest.new("Sophie")
     @songs1 = [@song1, @song2]
