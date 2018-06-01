@@ -22,7 +22,7 @@ class Club
     possible_rooms = available_rooms(1)
     wanted_room = possible_rooms.find {|room| room.theme() == wanted_theme}
 
-    return if wanted_room == nil
+    return if wanted_room == nil || guest.wallet() < wanted_room.price()
 
     wanted_room.add_guest(guest)
     guest.remove_cash(wanted_room.price())
