@@ -6,7 +6,7 @@ require_relative("../guest.rb")
 class RoomTest < MiniTest::Test
 
   def setup
-    @room1 = Room.new(10.00, 5)
+    @room1 = Room.new(10.00, 5, "fairytale")
     @song1 = Song.new("Make a man out of you")
     @song2 = Song.new("Once upon a December")
     @guest1 = Guest.new("Stuart", 50.00)
