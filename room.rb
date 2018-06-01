@@ -17,7 +17,7 @@ class Room
     @songs.push(song)
   end
 
-  def add_many_songs(songs_array)
+  def add_playlist(songs_array)
     @songs.concat(songs_array)
   end
 
@@ -25,7 +25,7 @@ class Room
     @occupants.push(guest)
   end
 
-  def add_many_guests(guests_array)
+  def add_party(guests_array)
     @occupants.concat(guests_array)
   end
 
@@ -33,7 +33,7 @@ class Room
     @occupants.delete(guest)
   end
 
-  def remove_many_guests(guests_leaving_array)
+  def remove_party(guests_leaving_array)
     @occupants -= guests_leaving_array
   end
 

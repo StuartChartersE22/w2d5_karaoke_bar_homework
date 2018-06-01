@@ -40,7 +40,7 @@ class ClubTest < MiniTest::Test
   end
 
   def test_admit_guest_to_room__insufficient_space_and_sufficient_funds
-    @room2.add_many_guests(@party1)
+    @room2.add_party(@party1)
     @club1.admit_guest_to_room("musical", @guest3)
     assert_equal(0, @room2.number_of_spaces_left())
     assert_equal(20.00, @guest3.wallet())
@@ -48,7 +48,7 @@ class ClubTest < MiniTest::Test
   end
 
   def test_admit_guest_to_room__sufficient_space_and_insufficient_funds
-    @room1.add_many_guests(@party1)
+    @room1.add_party(@party1)
     @guest3.remove_cash(15.50)
     @club1.admit_guest_to_room("fairytale", @guest3)
     assert_equal(3, @room1.number_of_spaces_left())

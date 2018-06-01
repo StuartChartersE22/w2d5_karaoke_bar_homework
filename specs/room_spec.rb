@@ -11,7 +11,7 @@ class RoomTest < MiniTest::Test
     @song2 = Song.new("Once upon a December")
     @guest1 = Guest.new("Stuart", 50.00)
     @guest2 = Guest.new("Sophie", 20.00)
-    @songs1 = [@song1, @song2]
+    @playlist1 = [@song1, @song2]
     @guests1 = [@guest1, @guest2]
   end
 
@@ -24,8 +24,8 @@ class RoomTest < MiniTest::Test
     assert_equal(1, @room1.songs().length())
   end
 
-  def test_add_many_songs
-    @room1.add_many_songs(@songs1)
+  def test_add_playlist
+    @room1.add_playlist(@playlist1)
     assert_equal(2, @room1.songs().length())
   end
 
@@ -34,8 +34,8 @@ class RoomTest < MiniTest::Test
     assert_equal(1, @room1.occupants().length())
   end
 
-  def test_add_many_guests
-    @room1.add_many_guests(@guests1)
+  def test_add_party
+    @room1.add_party(@guests1)
     assert_equal(2, @room1.occupants().length())
   end
 
@@ -45,14 +45,14 @@ class RoomTest < MiniTest::Test
     assert_equal(0, @room1.occupants().length())
   end
 
-  def test_remove_many_guests
-    @room1.add_many_guests(@guests1)
-    @room1.remove_many_guests(@guests1)
+  def test_remove_party
+    @room1.add_party(@guests1)
+    @room1.remove_party(@guests1)
     assert_equal(0, @room1.occupants().length())
   end
 
   def test_number_of_spaces_left_in_a_room
-    @room1.add_many_guests(@guests1)
+    @room1.add_party(@guests1)
     assert_equal(3, @room1.number_of_spaces_left())
   end
 
