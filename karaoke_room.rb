@@ -23,7 +23,7 @@ class KaraokeRoom < Room
 
   def play_selected_song(name_of_song)
     wanted_song = @songs.find {|song| song.name() == name_of_song}
-    @playing_song = wanted_song
+    turn_on_music(wanted_song)
     return wanted_song.play()
   end
 

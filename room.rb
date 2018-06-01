@@ -24,8 +24,16 @@ class Room
     @occupants -= guests_leaving_array
   end
 
-  def number_of_spaces_left
+  def number_of_spaces_left()
     return @capacity - @occupants.length()
+  end
+
+  def turn_off_music()
+    @playing_song = nil
+  end
+
+  def turn_on_music(song)
+    @playing_song = song
   end
 
 end
