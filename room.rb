@@ -12,4 +12,8 @@ class Room
     @songs.push(song)
   end
 
+  def add_many_songs(songs_array)
+    @songs.concat(songs_array)
+  end
+
 end
