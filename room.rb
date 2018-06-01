@@ -7,4 +7,24 @@ class Room
     @occupants = []
   end
 
+  def add_guest(guest)
+    @occupants.push(guest)
+  end
+
+  def add_party(guests_array)
+    @occupants.concat(guests_array)
+  end
+
+  def remove_guest(guest)
+    @occupants.delete(guest)
+  end
+
+  def remove_party(guests_leaving_array)
+    @occupants -= guests_leaving_array
+  end
+
+  def number_of_spaces_left
+    return @capacity - @occupants.length()
+  end
+
 end
