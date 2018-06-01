@@ -75,4 +75,14 @@ class ClubTest < MiniTest::Test
     assert_equal(0.00, @club1.till())
   end
 
+  def test_admit_party_to_room__insufficient_space_and_sufficient_funds
+    party2 = @party1.push(@guest3)
+    @club1.admit_party_to_room("musical", party2)
+    assert_equal(2, @room2.number_of_spaces_left())
+    assert_equal(50.00, @guest1.wallet())
+    assert_equal(20.00, @guest2.wallet())
+    assert_equal(20.00, @guest3.wallet())
+    assert_equal(0.00, @club1.till())
+  end
+
 end
