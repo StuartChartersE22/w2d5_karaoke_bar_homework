@@ -8,4 +8,8 @@ class Club
     @till = 0.0
   end
 
+  def add_cash(amount)
+    @till += amount
+  end
+
 end
