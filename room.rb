@@ -16,4 +16,12 @@ class Room
     @songs.concat(songs_array)
   end
 
+  def add_guest(guest)
+    @occupants.push(guest)
+  end
+
+  def add_many_guests(guests_array)
+    @occupants.concat(guests_array)
+  end
+
 end
