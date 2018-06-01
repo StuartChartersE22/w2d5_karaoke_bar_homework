@@ -12,7 +12,7 @@ class ClubTest < MiniTest::Test
 
     @guest1 = Guest.new("Stuart", 50.00)
     @guest2 = Guest.new("Sophie", 20.00)
-    @guests1 = [@guest1, @guest2]
+    @party1 = [@guest1, @guest2]
 
     @club1 = Club.new("Da Mic", rooms)
   end
@@ -31,11 +31,11 @@ class ClubTest < MiniTest::Test
     assert_equal(2, list_available_rooms.length())
   end
 
-  # def test_admit_customer_to_room__sufficient_space_and_funds
-  #   @club.admit_customer_to_room("fairytale",@guest1)
-  #   assert_equal(4, @room1.number_of_spaces_left())
-  #   assert_equal(40.00, @guest1.wallet())
-  #   assert_equal(10.00, @club1.till())
-  # end
+  def test_admit_customer_to_room__sufficient_space_and_funds
+    @club1.admit_customer_to_room("fairytale", @guest1)
+    assert_equal(4, @room1.number_of_spaces_left())
+    assert_equal(40.00, @guest1.wallet())
+    assert_equal(10.00, @club1.till())
+  end
 
 end
