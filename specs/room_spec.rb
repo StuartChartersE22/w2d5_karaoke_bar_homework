@@ -14,7 +14,7 @@ class RoomTest < MiniTest::Test
   end
 
   def test_add_song
-    @room1.test_add_song(@song1)
+    @room1.add_song(@song1)
     assert_equal(1, @room1.songs().length())
   end
 
