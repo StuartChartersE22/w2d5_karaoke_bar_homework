@@ -25,7 +25,7 @@ class RoomTest < MiniTest::Test
   end
 
   def test_add_playlist
-    @room1.add_playlist(@playlist1)
+    @room1.add_to_playlist(@playlist1)
     assert_equal(2, @room1.songs().length())
   end
 
@@ -54,6 +54,11 @@ class RoomTest < MiniTest::Test
   def test_number_of_spaces_left_in_a_room
     @room1.add_party(@guests1)
     assert_equal(3, @room1.number_of_spaces_left())
+  end
+
+  def test_play_selected_song
+    @room1.add_to_playlist(@playlist1)
+    assert_equal("'Make a man out of you' is playing", @room1.play_selected_song("Make a man out of you"))
   end
 
 end

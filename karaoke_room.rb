@@ -17,8 +17,13 @@ class KaraokeRoom < Room
     @songs.push(song)
   end
 
-  def add_playlist(songs_array)
+  def add_to_playlist(songs_array)
     @songs.concat(songs_array)
+  end
+
+  def play_selected_song(name_of_song)
+    wanted_song = @songs.find {|song| song.name() == name_of_song}
+    wanted_song.play()
   end
 
 end

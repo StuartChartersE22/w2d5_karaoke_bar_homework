@@ -9,7 +9,7 @@ class Song
   end
 
   def play()
-    return "I am playing"
+    return "'#{@name}' is playing"
   end
 
 end

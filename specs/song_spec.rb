@@ -12,7 +12,7 @@ class SongTest < MiniTest::Test
   end
 
   def test_song_can_play
-    assert_equal("I am playing", @song1.play())
+    assert_equal("'Make a man out of you' is playing", @song1.play())
   end
 
 end
