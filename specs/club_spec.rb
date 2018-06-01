@@ -1,13 +1,13 @@
 require("minitest/autorun")
-require_relative("../room.rb")
+require_relative("../karaoke_room.rb")
 require_relative("../guest.rb")
 require_relative("../club.rb")
 
 class ClubTest < MiniTest::Test
 
   def setup
-    @room1 = Room.new(10.00, 5, "fairytale")
-    @room2 = Room.new(15.50, 2, "musical")
+    @room1 = KaraokeRoom.new(10.00, 5, "fairytale")
+    @room2 = KaraokeRoom.new(15.50, 2, "musical")
     rooms = [@room1, @room2]
 
     @guest1 = Guest.new("Stuart", 50.00)
