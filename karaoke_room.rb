@@ -1,15 +1,15 @@
 require("pry")
+require_relative("room.rb")
 
-class KaraokeRoom
+class KaraokeRoom < Room
 
-  attr_reader(:price, :songs, :occupants, :capacity)
+  attr_reader(:price, :songs)
   attr_accessor(:theme)
 
   def initialize(price, capacity, theme)
+    super(capacity)
     @price = price
     @songs = []
-    @occupants = []
-    @capacity = capacity
     @theme = theme
   end
 
