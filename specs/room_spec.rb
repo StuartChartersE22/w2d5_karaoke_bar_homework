@@ -6,11 +6,11 @@ require_relative("../guest.rb")
 class RoomTest < MiniTest::Test
 
   def setup
-    @room1 = Room.new(10.00)
+    @room1 = Room.new(10.00, 5)
     @song1 = Song.new("Make a man out of you")
     @song2 = Song.new("Once upon a December")
-    @guest1 = Guest.new("Stuart")
-    @guest2 = Guest.new("Sophie")
+    @guest1 = Guest.new("Stuart", 50.00)
+    @guest2 = Guest.new("Sophie", 20.00)
     @songs1 = [@song1, @song2]
     @guests1 = [@guest1, @guest2]
   end
@@ -49,6 +49,11 @@ class RoomTest < MiniTest::Test
     @room1.add_many_guests(@guests1)
     @room1.remove_many_guests(@guests1)
     assert_equal(0, @room1.occupants().length())
+  end
+
+  def test_number_of_spaces_left_in_a_room
+    @room1.add_many_guests(@guests1)
+    assert_equal(3, @room1.number_of_spaces_left())
   end
 
 end

@@ -1,11 +1,12 @@
 class Room
 
-  attr_reader(:price, :songs, :occupants)
+  attr_reader(:price, :songs, :occupants, :capacity)
 
-  def initialize(price)
+  def initialize(price, capacity)
     @price = price
     @songs = []
     @occupants = []
+    @capacity = capacity
   end
 
   def add_song(song)
@@ -30,6 +31,10 @@ class Room
 
   def remove_many_guests(guests_leaving_array)
     @occupants -= guests_leaving_array
+  end
+
+  def number_of_spaces_left
+    return @capacity - @occupants.length()
   end
 
 end
