@@ -52,6 +52,14 @@ class GuestTest < MiniTest::Test
   def test_enter_club
     @guest1.enter_club(@club1)
     assert_equal(@reception, @guest1.in_room())
+    assert_equal(1, @reception.occupants.length())
+  end
+
+  def test_leave_club
+    @guest1.enter_club(@club1)
+    @guest1.leave_club()
+    assert_nil(@guest1.in_room())
+    assert_equal(0, @reception.occupants.length())
   end
 
 end

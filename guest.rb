@@ -21,7 +21,11 @@ class Guest
   end
 
   def enter_club(club)
-    @in_room = club.entrance()
+    club.entrance().add_guest(self)
+  end
+
+  def leave_club()
+    @in_room.remove_guest(self)
   end
 
 end
