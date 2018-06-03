@@ -34,4 +34,12 @@ class ClubTest < MiniTest::Test
     assert_equal(@club1, @room1.in_club())
   end
 
+  def test_empty_club
+    @room1.add_guest(@guest1)
+    @room2.add_guest(@guest2)
+    @reception.add_guest(@guest3)
+    @club1.empty()
+    assert_equal(0, @club1.total_guests())
+  end
+
 end

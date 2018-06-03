@@ -20,4 +20,13 @@ class Club
     return @rooms.find_all {|room| room.number_of_spaces_left() >= size_of_party && room.class() == KaraokeRoom}
   end
 
+  def total_guests()
+    return @rooms.sum {|room| room.occupants().length()}
+  end
+
+  def empty()
+    rooms_with_occupants = @rooms.find_all {|room| room.occupants() != 0}
+    rooms_with_occupants.each {|room| room.empty()}
+  end
+
 end

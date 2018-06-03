@@ -33,6 +33,11 @@ class Room
     guests_leaving_array.each {|guest| guest.in_room = nil}
   end
 
+  def empty()
+    @occupants.each {|guest| guest.in_room = nil}
+    @occupants = []
+  end
+
   def number_of_spaces_left()
     return @capacity - @occupants.length()
   end
