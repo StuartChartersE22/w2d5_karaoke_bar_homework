@@ -12,12 +12,13 @@ class ClubTest < MiniTest::Test
     @reception = Reception.new()
     rooms = [@room1, @room2, @reception]
 
+    @club1 = Club.new("Da Mic", rooms, @reception)
+
     @guest1 = Guest.new("Stuart", 50.00)
     @guest2 = Guest.new("Sophie", 20.00)
     @guest3 = Guest.new("Joe", 20.00)
     @party1 = [@guest1, @guest2]
 
-    @club1 = Club.new("Da Mic", rooms)
   end
 
   def test_club_has_name

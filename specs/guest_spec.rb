@@ -1,17 +1,25 @@
 require("minitest/autorun")
-require_relative("../guest.rb")
 require_relative("../karaoke_room.rb")
+require_relative("../guest.rb")
+require_relative("../club.rb")
+require_relative("../reception.rb")
 require_relative("../song.rb")
 
 class GuestTest < MiniTest::Test
 
   def setup
+    @room1 = KaraokeRoom.new(10.00, 5, "fairytale")
+    @room2 = KaraokeRoom.new(15.50, 2, "musical")
+    @reception = Reception.new()
+    rooms = [@room1, @room2, @reception]
+
+    @club1 = Club.new("Da Mic", rooms, @reception)
+
     @guest1 = Guest.new("Stuart",50.00)
 
     song1 = Song.new("Make a man out of you")
     song2 = Song.new("Once upon a December")
     playlist1 = [song1, song2]
-    @room1 = KaraokeRoom.new(10.00, 5, "fairytale")
     @room1.add_to_playlist(playlist1)
   end
 
@@ -39,6 +47,11 @@ class GuestTest < MiniTest::Test
     @room1.add_guest(@guest1)
     words_sung = @guest1.sing_along()
     assert_equal("hhhmmm, hhhmmm (singing to music in my head)", words_sung)
+  end
+
+  def test_enter_club
+    @guest1.enter_club(@club1)
+    assert_equal(@reception, @guest.in_room())
   end
 
 end

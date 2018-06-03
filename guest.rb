@@ -20,4 +20,8 @@ class Guest
     @in_room.playing_song().words()
   end
 
+  def enter_club(club)
+    @in_room = club.entrance()
+  end
+
 end

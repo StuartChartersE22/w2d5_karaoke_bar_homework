@@ -19,7 +19,7 @@ class ReceptionTest < MiniTest::Test
     @guest3 = Guest.new("Joe", 20.00)
     @party1 = [@guest1, @guest2]
 
-    club1 = Club.new("Da Mic", rooms)
+    club1 = Club.new("Da Mic", rooms, @reception)
 
   end
 
