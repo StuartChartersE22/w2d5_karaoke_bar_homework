@@ -21,6 +21,16 @@ class Club
     room.in_club = self
   end
 
+  def remove_room(wanted_room)
+    @rooms.delete(room)
+    room.in_club = nil
+  end
+
+  def remove_array_of_rooms(array_of_rooms)
+    @rooms -= array_of_rooms
+    array_of_rooms.each {|room| room.in_club = nil}
+  end
+
   def available_karaoke_rooms(size_of_party)
     return @rooms.find_all {|room| room.number_of_spaces_left() >= size_of_party && room.class() == KaraokeRoom}
   end
