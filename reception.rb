@@ -24,6 +24,7 @@ class Reception < Room
     guest.remove_cash(wanted_room.price())
     add_cash(wanted_room.price())
     guest.in_room = wanted_room
+    @occupants.delete(guest)
   end
 
   def admit_party_to_room(wanted_theme, array_of_guests)
@@ -36,6 +37,7 @@ class Reception < Room
     array_of_guests.each {|guest| guest.remove_cash(wanted_room.price())}
     add_cash(wanted_room.price() * array_of_guests.length())
     array_of_guests.each {|guest| guest.in_room = wanted_room}
+    @occupants -= array_of_guests
   end
 
 end

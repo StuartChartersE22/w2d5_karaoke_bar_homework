@@ -34,6 +34,7 @@ class ReceptionTest < MiniTest::Test
     assert_equal(40.00, @guest1.wallet())
     assert_equal(10.00, @reception.till())
     assert_equal(@room1, @guest1.in_room())
+    assert_equal(0, @reception.occupants().length())
   end
 
   def test_admit_guest_to_room__insufficient_space_and_sufficient_funds
@@ -61,6 +62,7 @@ class ReceptionTest < MiniTest::Test
     assert_equal(20.00, @reception.till())
     assert_equal(@room1, @guest1.in_room())
     assert_equal(@room1, @guest2.in_room())
+    assert_equal(0, @reception.occupants().length())
   end
 
   def test_admit_party_to_room__sufficient_space_and_insufficient_funds
