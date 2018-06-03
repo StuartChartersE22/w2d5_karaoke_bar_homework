@@ -16,6 +16,9 @@ class Reception < Room
 
   def admit_guest_to_room(wanted_theme, guest)
     possible_rooms = @in_club.available_karaoke_rooms(1)
+
+    return if possible_rooms.length() == 0
+
     wanted_room = possible_rooms.find {|room| room.theme() == wanted_theme}
 
     return if wanted_room == nil || guest.wallet() < wanted_room.price()
@@ -29,6 +32,9 @@ class Reception < Room
 
   def admit_party_to_room(wanted_theme, array_of_guests)
     possible_rooms = @in_club.available_karaoke_rooms(array_of_guests.length())
+
+    return if possible_rooms.length() == 0
+    
     wanted_room = possible_rooms.find {|room| room.theme() == wanted_theme}
 
     return if wanted_room == nil || array_of_guests.any? {|guest| guest.wallet() < wanted_room.price()}
