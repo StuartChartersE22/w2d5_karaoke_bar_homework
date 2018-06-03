@@ -13,7 +13,12 @@ class Club
 
   def add_array_of_rooms(array_of_rooms)
     @rooms.concat(array_of_rooms)
-    array_of_rooms.each {|room| room.assign_room_to_club(self)}
+    array_of_rooms.each {|room| room.in_club = self}
+  end
+
+  def add_room(room)
+    @rooms.push(room)
+    room.in_club = self
   end
 
   def available_karaoke_rooms(size_of_party)

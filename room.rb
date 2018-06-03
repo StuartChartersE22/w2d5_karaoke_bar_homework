@@ -1,16 +1,14 @@
 class Room
 
-  attr_reader(:capacity, :occupants, :playing_song, :in_club)
+  attr_reader(:capacity, :occupants, :playing_song)
+
+  attr_accessor(:in_club)
 
   def initialize(capacity, playing_song=nil)
     @capacity = capacity
     @occupants = []
     @playing_song = playing_song
     @in_club = nil
-  end
-
-  def assign_room_to_club(club)
-    @in_club = club
   end
 
   def add_guest(guest)
