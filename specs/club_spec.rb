@@ -22,70 +22,13 @@ class ClubTest < MiniTest::Test
     assert_equal("Da Mic", @club1.name())
   end
 
-  def test_add_to_till
-    @club1.add_cash(10.00)
-    assert_equal(10.00, @club1.till())
-  end
-
   def test_available_rooms
     list_available_rooms = @club1.available_rooms(2)
     assert_equal(2, list_available_rooms.length())
   end
 
-  def test_admit_guest_to_room__sufficient_space_and_funds
-    @club1.admit_guest_to_room("fairytale", @guest1)
-    assert_equal(4, @room1.number_of_spaces_left())
-    assert_equal(40.00, @guest1.wallet())
-    assert_equal(10.00, @club1.till())
-    assert_equal(@room1, @guest1.in_room())
-  end
-
-  def test_admit_guest_to_room__insufficient_space_and_sufficient_funds
-    @room2.add_party(@party1)
-    @club1.admit_guest_to_room("musical", @guest3)
-    assert_equal(0, @room2.number_of_spaces_left())
-    assert_equal(20.00, @guest3.wallet())
-    assert_equal(0.00, @club1.till())
-  end
-
-  def test_admit_guest_to_room__sufficient_space_and_insufficient_funds
-    @room1.add_party(@party1)
-    @guest3.remove_cash(15.50)
-    @club1.admit_guest_to_room("fairytale", @guest3)
-    assert_equal(3, @room1.number_of_spaces_left())
-    assert_equal(4.50, @guest3.wallet())
-    assert_equal(0.00, @club1.till())
-  end
-
-  def test_admit_party_to_room__sufficient_space_and_funds
-    @club1.admit_party_to_room("fairytale", @party1)
-    assert_equal(3, @room1.number_of_spaces_left())
-    assert_equal(40.00, @guest1.wallet())
-    assert_equal(10.00, @guest2.wallet())
-    assert_equal(20.00, @club1.till())
-    assert_equal(@room1, @guest1.in_room())
-    assert_equal(@room1, @guest2.in_room())
-  end
-
-  def test_admit_party_to_room__sufficient_space_and_insufficient_funds
-    @guest3.remove_cash(15.50)
-    party2 = @party1.push(@guest3)
-    @club1.admit_party_to_room("fairytale", party2)
-    assert_equal(5, @room1.number_of_spaces_left())
-    assert_equal(50.00, @guest1.wallet())
-    assert_equal(20.00, @guest2.wallet())
-    assert_equal(4.50, @guest3.wallet())
-    assert_equal(0.00, @club1.till())
-  end
-
-  def test_admit_party_to_room__insufficient_space_and_sufficient_funds
-    party2 = @party1.push(@guest3)
-    @club1.admit_party_to_room("musical", party2)
-    assert_equal(2, @room2.number_of_spaces_left())
-    assert_equal(50.00, @guest1.wallet())
-    assert_equal(20.00, @guest2.wallet())
-    assert_equal(20.00, @guest3.wallet())
-    assert_equal(0.00, @club1.till())
+  def test_add_array_of_rooms_working_in_initialize
+    assert_equal(@club1, @room1.in_club())
   end
 
 end
