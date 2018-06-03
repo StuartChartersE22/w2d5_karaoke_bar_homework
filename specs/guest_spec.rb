@@ -51,7 +51,7 @@ class GuestTest < MiniTest::Test
 
   def test_enter_club
     @guest1.enter_club(@club1)
-    assert_equal(@reception, @guest.in_room())
+    assert_equal(@reception, @guest1.in_room())
   end
 
 end
