@@ -2,13 +2,15 @@ require("minitest/autorun")
 require_relative("../karaoke_room.rb")
 require_relative("../guest.rb")
 require_relative("../club.rb")
+require_relative("../reception.rb")
 
 class ClubTest < MiniTest::Test
 
   def setup
     @room1 = KaraokeRoom.new(10.00, 5, "fairytale")
     @room2 = KaraokeRoom.new(15.50, 2, "musical")
-    rooms = [@room1, @room2]
+    @reception = Reception.new()
+    rooms = [@room1, @room2, @reception]
 
     @guest1 = Guest.new("Stuart", 50.00)
     @guest2 = Guest.new("Sophie", 20.00)
@@ -22,8 +24,8 @@ class ClubTest < MiniTest::Test
     assert_equal("Da Mic", @club1.name())
   end
 
-  def test_available_rooms
-    list_available_rooms = @club1.available_rooms(2)
+  def test_available_karaoke_rooms
+    list_available_rooms = @club1.available_karaoke_rooms(2)
     assert_equal(2, list_available_rooms.length())
   end
 
